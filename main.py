@@ -1,5 +1,7 @@
 import os
+import sys
 from time import sleep
+
 from sightengine.client import SightengineClient
 
 import praw
@@ -54,7 +56,11 @@ while True:
     subreddit = reddit.subreddit('all')
     for comment in subreddit.stream.comments():
         if '!SpotCelebsBot' in comment.body:
-            comment.reply(spot_celebs(comment.link_url))
+            try:
+                comment.reply(spot_celebs(comment.link_url))
+            except:
+                print("Oops!", sys.exc_info()[0], "occured.")
+
     sleep(2)
 
 
