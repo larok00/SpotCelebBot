@@ -8,6 +8,8 @@ pylint = "*"
 
 [packages]
 sightengine = "*"
+requests = "*"
+praw = "*"
 
 [requires]
 python_version = "3.7"
